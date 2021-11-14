@@ -41,7 +41,7 @@
     "hardhat": "node --require esm node_modules/.bin/hardhat",
     "flatten": "run(){ yarn hardhat flatten contracts/$1.sol > Flat$1.sol; }; run",
     "compile": "yarn hardhat compile",
-    "test": "NODE_OPTIONS=--openssl-legacy-provider yarn hardhat test",
+    "test": "yarn hardhat test",
     "coverage": "yarn hardhat coverage",
     "deploy": "yarn hardhat deploy --network",
     "deploy:legacy": "yarn hardhat run scripts/deploy.js --network",
