@@ -277,9 +277,11 @@ describe('YieldFarming contract', () => {
               .to.emit(deploy.yieldFarming, 'YieldFarmingTokenRelease')
               .withArgs(deploy.first.address, releaseValue)
           })
-          it('revert when trying to get tokenTimeLock from unexisting index', async () => {
-            await expect(deploy.yieldFarming.getMyTokenTimeLock(1))
-              .to.be.revertedWith('Index out of bounds!')
+          it('should be able to get tokenTimeLock from existing index', async () => {
+            const tokenTimeLockAddress = await deploy.yieldFarming.getMyTokenTimeLock(0)
+              const tokenTimeLock = await ethers.getContractAt('TokenTimeLock', tokenTimeLockAddress)
+              await expect(tokenTimeLock.release())
+                .to.be.revertedWith('Ownable: caller is not the owner')
           })          
           describe('After release', async () => {
             beforeEach(async () => {
