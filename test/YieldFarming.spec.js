@@ -277,8 +277,8 @@ describe('YieldFarming contract', () => {
               .to.emit(deploy.yieldFarming, 'YieldFarmingTokenRelease')
               .withArgs(deploy.first.address, releaseValue)
           })
-          it('revert when trying to release tokens from unexisting index', async () => {
-            await expect(deploy.yieldFarming.releaseTokens(1))
+          it('revert when trying to get tokenTimeLock from unexisting index', async () => {
+            await expect(deploy.yieldFarming.getMyTokenTimeLock(1))
               .to.be.revertedWith('Index out of bounds!')
           })          
           describe('After release', async () => {
