@@ -55,6 +55,6 @@
     "prepare": "husky install",
     "gas-report": "env ENABLE_GAS_REPORT=1 npm run test"
   },
-  "author": "David Kneel",
+  "author": "Brandon Let's Go",
   "license": "ISC"
 }
